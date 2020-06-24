@@ -25,7 +25,7 @@ function updateTotalCostForProduct(productEl) {
     const quantityAsNumber = parseInt(quantity);
     const totalCost = quantityAsNumber * costAsNumber;
 
-    totalCostEl.textContent = `$${totalCost.toFixed(2)}`;
+    setCost(totalCostEl, totalCost);
 }
 
 function updateCartGrandTotal() {
@@ -34,18 +34,20 @@ function updateCartGrandTotal() {
     const totals = document.querySelectorAll('.cart__product-total');
     totals.forEach(total => {
         const productTotal = parseCost(total.textContent);
-        console.log(total.textContent + ' + ' + productTotal);
         grandTotal += productTotal;
     });
 
     const grandTotalEl = document.querySelector('.cart__total-cost');
-    console.log('grand total: ' + grandTotal);
-    grandTotalEl.textContent = `$${grandTotal.toFixed(2)}`;
+    setCost(grandTotalEl, grandTotal);
 }
 
 function parseCost(costAsStringWithDollarSign) {
     const costWithoutDollarSign = costAsStringWithDollarSign.slice(1);
     return parseFloat(costWithoutDollarSign);
+}
+
+function setCost(el, cost) {
+    el.textContent = `$${cost.toFixed(2)}`;
 }
 
 if (document.readyState !== 'loading') {
