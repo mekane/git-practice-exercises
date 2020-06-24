@@ -1,9 +1,11 @@
 'use strict'
 
 function updateCart() {
-    const products = document.querySelectorAll('.cart__product-name');
-    console.log('update', products);
+    updateProductRowTotalCosts();
+}
 
+function updateProductRowTotalCosts() {
+    const products = document.querySelectorAll('.cart__product-name');
     products.forEach(updateTotalCostForProduct);
 }
 
