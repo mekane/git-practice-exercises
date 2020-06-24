@@ -27,7 +27,11 @@ body {
     padding: 8px;
 }
 
-.cart__product {
+.cart__product-name,
+.cart__product-price,
+.cart__product-qty,
+.cart__product-total,
+.cart__product-weight {
     border-top: 1px solid #ccc;
     padding: 8px;
 }
