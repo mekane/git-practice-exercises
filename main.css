@@ -31,7 +31,10 @@ body {
 .cart__product-price,
 .cart__product-qty,
 .cart__product-total,
-.cart__product-weight {
+.cart__product-weight,
+.cart__total-span,
+.cart__total-cost,
+.cart__total-weight {
     border-top: 1px solid #ccc;
     padding: 8px;
 }
@@ -40,4 +43,8 @@ body {
     font-weight: bold;
     grid-column: 1 / span 3;
     text-align: right;
+}
+
+.cart__total-cost {
+    font-weight: bold;
 }
