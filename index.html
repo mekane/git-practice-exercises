@@ -19,8 +19,15 @@
       padding: 25px;
     }
 
-    .cart__header {
+    .cart__contents {
+      display: grid;
+      border: 2px solid #ccc;
+      grid-template-columns: 3fr 1fr 1fr;
+      padding: 4px;
+    }
 
+    .cart__column-header {
+      font-weight: bold;
     }
   </style>
 </head>
@@ -30,7 +37,25 @@
   <main class="cart">
     <h1 class="cart__header">Your Cart</h1>
     <div class="cart__contents">
-      Yo stuff
+      <div class="cart__column-header">Product Name</div>
+      <div class="cart__column-header">Cost</div>
+      <div class="cart__column-header">Quantity</div>
+
+      <div class="cart__product">A Black T-Shirt</div>
+      <div class="cart__product">$20.00</div>
+      <div class="cart__product">1</div>
+
+      <div class="cart__product">AA Batteries (8-pack)</div>
+      <div class="cart__product">$4.00</div>
+      <div class="cart__product">8</div>
+
+      <div class="cart__product">"The Clean Coder" by Robert Martin</div>
+      <div class="cart__product">$28.99</div>
+      <div class="cart__product">1</div>
+
+      <div class="cart__product">Commemorative  Bowling Ball</div>
+      <div class="cart__product">$44.99</div>
+      <div class="cart__product">1</div>
     </div>
   </main>
 </body>
