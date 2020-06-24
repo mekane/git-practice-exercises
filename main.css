@@ -17,10 +17,23 @@ body {
 .cart__contents {
     display: grid;
     border: 2px solid #ccc;
-    grid-template-columns: 3fr 1fr 1fr;
-    padding: 4px;
+    grid-template-columns: 3fr repeat(4, 1fr);
+    padding: 0;
 }
 
 .cart__column-header {
+    border-bottom: 1px solid #ccc;
     font-weight: bold;
+    padding: 8px;
+}
+
+.cart__product {
+    border-top: 1px solid #ccc;
+    padding: 8px;
+}
+
+.cart__total-span {
+    font-weight: bold;
+    grid-column: 1 / span 3;
+    text-align: right;
 }
