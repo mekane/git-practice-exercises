@@ -13,11 +13,12 @@ function updateProductRowTotalCosts() {
 function updateTotalCostForProduct(productEl) {
     const costEl = productEl.nextElementSibling;
     const quantityEl = costEl.nextElementSibling;
+    const quantityInput = quantityEl.querySelector('.cart__product-qty-input');
     const totalCostEl = quantityEl.nextElementSibling;
 
     const name = productEl.textContent;
     const cost = costEl.textContent;
-    const quantity = quantityEl.textContent;
+    const quantity = quantityInput.value;
 
     console.log(`compute product ${name}: ${cost} * ${quantity}`);
 
