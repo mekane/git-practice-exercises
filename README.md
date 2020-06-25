@@ -1,14 +1,14 @@
 # Git Practice Exercises
 
-This repository contains some a very fake web application, some sample branches and some explanatory text
+This repository contains a very fake web application, some sample branches and some explanatory text
 to help understand and practice some git concepts. The example project is in HTML, CSS, and JavaScript and
-the exercises are framed as requests for changes from other departments. The actual changes should be simple,
+the exercises are framed as requests for changes from other departments. The actual are intended to be simple,
 the goal here is to get hands-on practice with the git operations that arise.
 
 ## How to Use
 
 These exercises are designed to be stepped through in order, and require some coordination of branches to
-get the repository in the right state. If you have a faciliatator, they can do the parts marked _Facilitator_
+get the repository in the right state. If you have a facilitator, they can do the parts marked _Facilitator_
 otherwise you can do them yourself.
 
 Either way, everyone doing the exercise should **fork the repository**!
@@ -28,8 +28,6 @@ Also covered along the way:
 
 Welcome to the web team here at Tiny Jungle. Our founder wrote this awesome shopping cart app himself at the end of the
 last century. We're sure you'll have lots of fun keeping it up to date!
-
-Follow along with the requests below. They are aimed to be simple to implement 
 
 ## Exercise 1: Moving Branches
 
@@ -80,4 +78,6 @@ branch and push it.
 
 The thing to take away from this exercise is to think about branches as pointers to commits. They can move around and 
 change independent of the actual commits in the history.
+
+## Exercise 2: Rebasing
 
