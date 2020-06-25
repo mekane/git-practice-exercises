@@ -50,9 +50,15 @@ function setCost(el, cost) {
     el.textContent = `$${cost.toFixed(2)}`;
 }
 
+function initUpdateButton() {
+    const button = document.querySelector('.update-cart-button');
+    button.addEventListener('click', updateCart);
+}
+
+
 if (document.readyState !== 'loading') {
-    updateCart();
+    initUpdateButton();
 }
 else {
-    document.addEventListener('DOMContentLoaded', updateCart());
+    document.addEventListener('DOMContentLoaded', initUpdateButton());
 }

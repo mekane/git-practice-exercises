@@ -48,3 +48,9 @@ body {
 .cart__total-cost {
     font-weight: bold;
 }
+
+.update-cart-button {
+    cursor: pointer;
+    float: right;
+    margin: 8px 0;
+}
