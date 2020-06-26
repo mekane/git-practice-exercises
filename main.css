@@ -56,6 +56,22 @@ body {
     width: 6ch;
 }
 
+.cart__tax-span,
+.cart__tax-cost {
+    border-top: 1px solid #ccc;
+    padding: 8px;
+}
+
+.cart__tax-span {
+    font-weight: bold;
+    grid-column: span 3;
+    text-align: right;
+}
+
+.cart__tax-cost {
+    grid-column: span 2;
+}
+
 .update-cart-button {
     cursor: pointer;
     float: right;
