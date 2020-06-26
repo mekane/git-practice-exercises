@@ -159,3 +159,5 @@ Go ahead and merge the branch that we already rebased:
 
    * `git checkout dev`
    * `git merge --no-ff me-add-tax-and-total`
+
+Recommended reading for more detail: [The Git Book chapter on basic merge conflicts](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts)
