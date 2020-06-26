@@ -1,2 +1,3 @@
 This is just a dummy file.
 It only exists as an excuse to make a few commits.
+So that the example branch has some history.
