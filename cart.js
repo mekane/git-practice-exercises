@@ -2,9 +2,10 @@
 
 function updateCart() {
     updateProductRowTotalCosts();
-    updateCartGrandTotal();
+    updateCartCostTotal();
     updateShippingTotalWeight();
     updateTotalShippingCost();
+    updateCartGrandTotal();
 }
 
 function updateProductRowTotalCosts() {
@@ -31,17 +32,17 @@ function updateTotalCostForProduct(productEl) {
     setCost(totalCostEl, totalCost);
 }
 
-function updateCartGrandTotal() {
-    let grandTotal = 0;
+function updateCartCostTotal() {
+    let cartTotal = 0;
 
     const totals = document.querySelectorAll('.cart__product-total');
     totals.forEach(total => {
         const productTotal = parseCost(total.textContent);
-        grandTotal += productTotal;
+        cartTotal += productTotal;
     });
 
-    const grandTotalEl = document.querySelector('.cart__total-cost');
-    setCost(grandTotalEl, grandTotal);
+    const cartTotalEl = document.querySelector('.cart__total-cost');
+    setCost(cartTotalEl, cartTotal);
 }
 
 function parseCost(costAsStringWithDollarSign) {
