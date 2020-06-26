@@ -1,6 +1,6 @@
 # Git Practice Exercises
 
-This repository contains a very fake web application, some sample branches and some explanatory text
+This repository contains a fake web application, some sample branches and some explanatory text
 to help understand and practice some git concepts. The example project is in HTML, CSS, and JavaScript and
 the exercises are framed as requests for changes from other departments. The actual are intended to be simple,
 the goal here is to get hands-on practice with the git operations that arise.
