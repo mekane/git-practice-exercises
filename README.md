@@ -118,10 +118,11 @@ _replay_ your commits from your other branch, in order, onto it. This re-writes 
 like you started fresh from `dev`, perfect!
 
 Our branch is called `me-add-tax-and-total`, by the way. It already has some commits with the code for calculating tax.
-Let's rebase it onto `dev`:
+For now though we'll just look at an example branch so that we don't run into any funny business (we'll look at merge
+conflicts in the next exercise). This example branch was started at the same point as our other two:
 
    * `git checkout dev`
-   * `git rebase me-add-tax-and-total`
+   * `git rebase dev example-rebase-branch`
    
 You should see output from git with a log of the commits it is applying. If you run into a conflict it will pause part
 way through. You can get address the conflict and use `git rebase --continue`, but hopefully you won't run into that yet.
