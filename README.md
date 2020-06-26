@@ -130,3 +130,30 @@ that you are both ahead and behind by some number of commits. To resolve that yo
 Further note that force pushing is a _really bad idea_ if anyone else has touched the branch or based work on it. So you
 should only rebase _your own feature branches_, ideally before they have been pushed to a remote. Rebasing branches that
 other people may have copies of should only be done with a _lot_ of communication and team sign-off.
+
+Recommended reading for more detail and guidance: [The Git Book chapter on rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
+
+## Exercise 3 - Merge Conflicts
+
+In order to understand where merge conflicts come from it's important to understand how the changes in a commit are 
+applied to files. When you look at a git diff of lines that are changed you will actually see the original line removed
+and the modified line added. So there's no such thing as a plain "modify", there is only "remove" and "add". When you
+checkout out the branch with the commit and git applies the changes to the files in your working copy it removes and
+adds those lines to end up with the right file contents. 
+
+If one commit removes a line and replaces it, and then another commit also has the same line in its remove part, git 
+will flag this as a conflict, because it is left in an inconsistent state where it can't reliably make the patch. 
+It will mark the problem area with the infamous `<<<<<` and `>>>>>` sections. Between this it will actually put the 
+changes from both commits, with a dividing line of `======` between them. It does this so that you, the human, can 
+decide which chunk of code "wins". Your job is to reconcile the two, make the changes to the code and leave it in a
+working state. Note that you can keep one chunk or the other, or combine parts from each as you choose. Just make sure
+the final product is the correct code for the commit.
+
+To see this situation and practice resolving it, let's return to our "tax and total" branch in progress. As often 
+happens, there is a critical area of the code that changes for multiple reasons. So both our branch and Blair's both
+changed the same line, meaning removed the same old line, meaning that one of the diffs won't apply successfully.
+
+Go ahead and merge the branch that we already rebased:
+
+   * `git checkout dev`
+   * `git merge --no-ff me-add-tax-and-total`
