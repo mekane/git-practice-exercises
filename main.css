@@ -39,28 +39,35 @@ body {
 .cart__total-cost,
 .cart__total-weight,
 .cart__shipping-label,
-.cart__shipping-cost {
+.cart__shipping-cost,
+.cart__grand-total-label,
+.cart__grand-total-cost {
     border-top: 1px solid #ccc;
     padding: 8px;
 }
 
 .cart__total-label,
-.cart__shipping-label {
-    font-weight: bold;
+.cart__shipping-label,
+.cart__grand-total-label {
     grid-column: span 3;
     text-align: right;
 }
 
-.cart__total-cost {
-    font-weight: bold;
-}
-
-.cart__shipping-cost {
+.cart__shipping-cost,
+.cart__grand-total-cost {
     grid-column: span 2;
 }
 
 .cart__product-qty-input {
     width: 6ch;
+}
+
+.cart__grand-total-label {
+    font-weight: bold;
+}
+
+.cart__grand-total-cost {
+    font-weight: bold;
 }
 
 .update-cart-button {
