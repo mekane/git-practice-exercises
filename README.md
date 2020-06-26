@@ -64,7 +64,9 @@ When you make a new commit on a branch the pointer automatically moves up, inclu
 We can use that to our advantage and avoid adding any additional commits or doing any merges. It works like this: after
 QA has tested the changes on dev and we're ready to promote them to production, we just move the `production` branch
 pointer to where `dev` currently is. This is cool because there's no merge, there's no additional commits in the history,
-and we know 100% that the code that was tested by QA is exactly what is now tagged `production`.
+and we know 100% that the code that was tested by QA is exactly what is now tagged `production`. (Note that this is very 
+similar to a "fast forward" merge, which we normally avoid because it can obscure the history of a branch, but it in 
+this case it would work perfectly.)
 
 Here's how we do that:
 
