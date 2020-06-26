@@ -155,9 +155,12 @@ To see this situation and practice resolving it, let's return to our "tax and to
 happens, there is a critical area of the code that changes for multiple reasons. So both our branch and Blair's both
 changed the same line, meaning removed the same old line, meaning that one of the diffs won't apply successfully.
 
-Go ahead and merge the branch that we already rebased:
+Go ahead and try to rebase the branch that had our work in progress:
 
    * `git checkout dev`
-   * `git merge --no-ff me-add-tax-and-total`
+   * `git rebase dev me-add-tax-and-total`
+
+It runs into an error trying to apply our patch because the change we specified is no longer valid. We'll need to edit
+index.html to clean this up manually. Then we can `git add index.html` and `git rebase --continue`.
 
 Recommended reading for more detail: [The Git Book chapter on basic merge conflicts](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts)
