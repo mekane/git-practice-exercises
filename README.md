@@ -36,7 +36,7 @@ You open your email to find this message from the web content department:
 > Uh oh, Jeff just noticed that the copyright date in the footer hasn't been updated in a while!
 > Please get that updated and pushed to production right away!
 
-Here at Tiny Jungle we use the `production` branch in git to deploy to production. We also use `dev` for testing before
+Here at Tiny Jungle we use the `production` branch to deploy to production and we use `dev` for testing before
 release. So your goal is to get your changes onto the dev branch and then to production. We'll look at two ways of
 doing that.
 
@@ -81,3 +81,52 @@ change independent of the actual commits in the history.
 
 ## Exercise 2: Rebasing
 
+Another day another email:
+
+> Hi, so legal is telling us we need to collect sales tax from our customers now. So we'll need to
+> calculate that on top of the cart total and show it to the user and have a new "grand total" below
+> that. Thanks!
+
+So you set off and start adding the tax calculations code. At your team stand-up your hear that your colleague Blair is
+working on the feature to calculate shipping and show that in a "grand total" below the cart. So they have already
+implemented some code that you'll want to use, rather than duplicate it yourself. Blair is almost done and promises to 
+merge it into `dev` soon, but what then? You've already started your branch so it will be behind dev. You could do 
+something crazy like merge Blair's branch into yours but that goes against best practices and will make a mess of 
+the history. You could merge `dev` into your branch which would be slightly less controversial, but would still make 
+the history messy by reversing the expected direction of merges. The best thing to do here is to rebase.
+
+_**Facilitator:** Now we'll switch gears for a second and merge Blair's branch. So put a different hat on or 
+something, and do the following:_
+
+   * `git checkout dev`
+   * `git merge --no-ff blair-add-shipping-and-total`
+
+_Now that work is in `dev` so you can stop being Blair. Switch back to yourself now._
+
+Okay, `dev` now has everything in it we need. Ideally we would be starting our branch right now, but we couldn't just
+sit around waiting for everyone else so we had to get started earlier! Since we can't go back in time, we'll need to 
+figure out how to get the code we need while not losing the progress we've made so far. (Incidentally, if you find
+yourself in this situation and you really haven't done much on your branch yet, it can be easier to just delete it and
+start it over from the newly-updated `dev`). 
+
+If we were to do a manual process we might create a new branch off of `dev` and re-do the edits and commits from our 
+other branch one by one, after which we'd delete our old branch. That can work if you don't have much in the old branch,
+but thankfully rebasing is almost exactly that process, automated by git! Git will start with the `dev` branch and 
+_replay_ your commits from your other branch, in order, onto it. This re-writes the history of your branch so it looks
+like you started fresh from `dev`, perfect!
+
+Our branch is called `me-add-tax-and-total`, by the way. It already has some commits with the code for calculating tax.
+Let's rebase it onto `dev`:
+
+   * `git checkout dev`
+   * `git rebase me-add-tax-and-total`
+   
+You should see output from git with a log of the commits it is applying. If you run into a conflict it will pause part
+way through. You can get address the conflict and use `git rebase --continue`, but hopefully you won't run into that yet.
+
+If you look at a visual tool like gitk or SourceTree you should now see your branch with your commits sitting on top of
+the up-to-date `dev` branch. Note that if you had already pushed the branch to a remote then `git status` will report
+that you are both ahead and behind by some number of commits. To resolve that you need to force push (`git push -f`).
+Further note that force pushing is a _really bad idea_ if anyone else has touched the branch or based work on it. So you
+should only rebase _your own feature branches_, ideally before they have been pushed to a remote. Rebasing branches that
+other people may have copies of should only be done with a _lot_ of communication and team sign-off.
