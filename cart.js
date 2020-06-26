@@ -3,6 +3,7 @@
 function updateCart() {
     updateProductRowTotalCosts();
     updateCartGrandTotal();
+    updateShippingTotalWeight();
 }
 
 function updateProductRowTotalCosts() {
@@ -49,6 +50,19 @@ function parseCost(costAsStringWithDollarSign) {
 
 function setCost(el, cost) {
     el.textContent = `$${cost.toFixed(2)}`;
+}
+
+function updateShippingTotalWeight() {
+    let totalWeight = 0;
+
+    const weights = document.querySelectorAll('.cart__product-weight');
+    weights.forEach(weightEl => {
+        const weight = parseFloat(weightEl.textContent);
+        totalWeight += isNaN(weight) ? 0 : weight;
+    });
+
+    const totalWeightEl = document.querySelector('.cart__total-weight');
+    totalWeightEl.textContent = totalWeight + 'lb';
 }
 
 function initUpdateButton() {
