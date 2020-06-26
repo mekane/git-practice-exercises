@@ -165,3 +165,16 @@ It runs into an error trying to apply our patch because the change we specified 
 index.html to clean this up manually. Then we can `git add index.html` and `git rebase --continue`.
 
 Recommended reading for more detail: [The Git Book chapter on basic merge conflicts](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts)
+
+## Starting Over
+
+To restore the example repository back to the beginning, you can reset all the branches like so:
+
+   * `git checkout dev`
+   * `git reset --hard origin/dev`
+   * `git checkout blair-add-shipping-and-total`
+   * `git reset --hard origin/blair-add-shipping-and-total`
+   * `git checkout me-add-tax-and-total`
+   * `git reset --hard origin/me-add-tax-and-total`
+   * `git checkout example-rebase-branch`
+   * `git reset --hard origin/example-rebase-branch`
