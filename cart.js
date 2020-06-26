@@ -77,6 +77,18 @@ function updateTotalShippingCost() {
     setCost(shippingTotalEl, totalShippingCost);
 }
 
+function updateCartGrandTotal() {
+    const cartTotalEl = document.querySelector('.cart__total-cost');
+    const shippingTotalEl = document.querySelector('.cart__shipping-cost');
+
+    const cartTotal = parseCost(cartTotalEl.textContent);
+    const shippingTotal = parseCost(shippingTotalEl.textContent);
+    const grandTotal = cartTotal + shippingTotal;
+
+    const grandTotalEl = document.querySelector('.cart__grand-total-cost');
+    setCost(grandTotalEl, grandTotal);
+}
+
 function initUpdateButton() {
     const button = document.querySelector('.update-cart-button');
     button.addEventListener('click', updateCart);
